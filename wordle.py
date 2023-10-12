@@ -14,6 +14,9 @@ answer=file.readline()
 
 
 
+
+
+
 # running your tries
 print('\n\n\n******************************WORDLE******************************')
 print('YOU HAVE 5 TRIES TO GUESS THE WORD')
@@ -27,13 +30,13 @@ while(tries<=5):
             flag=1
         else:
             for l in range(0,5):
-                if(guess[l] in answer and guess[0:l+1].count(guess[l])<=answer.count(guess[l])):
-                    if(guess[l]==answer[l]):
-                        print(Back.GREEN+' '+guess[l]+' ',end='')
-                    else:
-                        print(Back.YELLOW+' '+guess[l]+' ',end='')
+                if(guess[l]==answer[l]):
+                    print(Back.GREEN+' '+guess[l]+' ',end='')
+                elif(guess[l] in answer and guess.count(guess[l])<=answer.count(guess[l])):
+                    print(Back.YELLOW+' '+guess[l]+' ',end='')
                 else:
                     print(Back.RED+' '+guess[l]+' ',end='')
+            
             print()
             tries+=1
     else:
